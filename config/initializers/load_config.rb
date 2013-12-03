@@ -1,1 +1,1 @@
-APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/databasedotcom.yml")
+CONFIG = YAML.load_file("#{::Rails.root.to_s}/config/databasedotcom.yml")
