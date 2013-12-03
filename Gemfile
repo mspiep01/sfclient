@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'databasedotcom'
 gem 'databasedotcom-rails'
 
+gem 'anjlab-bootstrap-rails', '~> 3.0.2.0', :require => 'bootstrap-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
