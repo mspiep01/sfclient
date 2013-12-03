@@ -1,1 +1,67 @@
-<h1>I'm a detailed view yo</h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1><%= "#{@account.Name} Detail" %></h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-4">
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Demographics	
+				<%= link_to "edit!", edit_account_path(@account) %>
+			</h3>
+		  </div>
+		  <div class="panel-body">
+	  		<ul>
+	  		<li><%= "Company Name: #{@account.Name}" %></li>
+	  		<li><%= "Street: #{@account.BillingStreet}" %></li>
+	  		<li><%= "City: #{@account.BillingCity}" %></li>
+	  		<li><%= "State: #{@account.BillingState}" %></li>
+	  		<li><%= "Zip: #{@account.BillingPostalCode}" %></li>
+	  		<li><%= "County: #{@account.County__c}" %></li>
+	  		<li><%= "Municipality: #{@account.Municipality__c}" %></li>
+	  		<li><%= "EIN: #{@account.EIN__c}" %></li>
+	  		</ul>
+		  </div>
+		</div>
+	</div>
+	
+	<div class="col-xs-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Contacts</h3>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<% @contact.each do |c| %>
+					<li><%= link_to c.Name, contact_path(c.Id) %>, <%= c.Title %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Report Data</h3>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<% @crd.each do |r| %>
+					<li><%= link_to r.Survey_Period__c, 							"/companyreportingdata/#{r.Id}" %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ul>
+<% @account.attributes.each do |att| %>
+<%= "#{att}, " %>
+<% end %>
+</ul>

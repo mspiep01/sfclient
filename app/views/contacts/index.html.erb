@@ -1,0 +1,7 @@
+<h1>I'm an account list</h1>
+
+<ul>
+	<% @contacts.each do |c| %>
+	<li><%= link_to "#{c.Name}", c %></li>
+	<% end %>
+</ul>

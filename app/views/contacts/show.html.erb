@@ -1,0 +1,10 @@
+<ul>
+	<li><%= "Name: #{@contact.Name}" %></li>
+	<li><%= "Title: #{@contact.Title}" %></li>
+	<li><%= "Email: #{@contact.Email}" %></li>
+</ul>
+<ul>
+	<% @contact.attributes.each do |a| %>
+	<li><%= a %></li>
+	<% end %>
+</ul>
