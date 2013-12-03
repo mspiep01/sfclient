@@ -1,7 +1,0 @@
-host: test.salesforce.com        # Use test.salesforce.com for sandbox
-client_secret: 2619358467912327402  # This is the Consumer Secret from SFDC
-client_id: 3MVG9sLbBxQYwWqtpz24LBYz665tpNre9DeSemyFWqVjE0T3lqVfudkFP5tPX1A6CX1vxvQUgV9rX1xG36mdn
-#sobject_module: SFDC_Models       # See below for details on using modules
-debugging: true                   # Can be useful while developing
-username: mp@techcolumbus.org.apptest
-password: Tarkin554HcN5lTmanZ5Lg3OjmDyo6Mc
