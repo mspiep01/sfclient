@@ -1,4 +1,6 @@
 Sfclient::Application.routes.draw do
+  get "company/new"
+  get "users/new"
   resources :accounts
   resources :contacts
   resources :companyreportingdata

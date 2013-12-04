@@ -14,7 +14,6 @@ Bundler.require(:default, Rails.env)
 module Sfclient
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/lib) #to load SFDC module
-    config.assets.initialize_on_precompile = false
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif) #precompile assets
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
