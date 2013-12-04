@@ -4,7 +4,11 @@ source 'https://rubygems.org'
 gem 'databasedotcom'
 gem 'databasedotcom-rails'
 
+#Add Twitter Bootstrap framework
 gem 'bootstrap-sass'
+
+#encryption for user password
+gem 'bcrypt-ruby'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
