@@ -1,11 +1,13 @@
 <div class="row">
-	<div class="span6">
+	<div class="col-sm-12">
+		<div class="well">
 		<h1><%= "#{@account.Name} Detail" %></h1>
+	</div>
 	</div>
 </div>
 
 <div class="row">
-	<div class="span6">
+	<div class="col-sm-4">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">Demographics	
@@ -15,28 +17,44 @@
 		  <div class="panel-body">
 	  		<ul>
 	  		<li><%= "Company Name: #{@account.Name}" %></li>
-	  		<li><%= "Street: #{@account.BillingStreet}" %></li>
-	  		<li><%= "City: #{@account.BillingCity}" %></li>
-	  		<li><%= "State: #{@account.BillingState}" %></li>
-	  		<li><%= "Zip: #{@account.BillingPostalCode}" %></li>
+	  		<li><%= "Address: #{@account.BillingStreet}" %> <br/>
+				<%= "         #{@account.BillingCity}, #{@account.BillingState} 						#{@account.BillingPostalCode}" %></li>
 	  		<li><%= "County: #{@account.County__c}" %></li>
 	  		<li><%= "Municipality: #{@account.Municipality__c}" %></li>
 	  		<li><%= "EIN: #{@account.EIN__c}" %></li>
+			<li><%= "#{@account.Company_Description__c}" %>
 	  		</ul>
 		  </div>
 		</div>
 	</div>
 	
-	<div class="span2">
-		<div class="panel panel-default">
+	<div class="col-sm-8">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Contacts</h3>
+				<h3 class="panel-title">Contacts 
+					<%= link_to "New Contact",new_contact_path(accountid: @account.Id) %>
+				</h3>
 			</div>
 			<div class="panel-body">
-				<ul>
-					<% @contact.each do |c| %>
-					<li><%= link_to c.Name, contact_path(c.Id) %>, <%= c.Title %></li>
+				<table class="table table-striped">
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Title</th>
+						<th></th>
+					</tr>
+					<tr><% @contact.each do |c| %>
+						<td><%= link_to c.Name, contact_path(c.Id) %></td>
+						<td><%= c.Email %></td>
+						<td><%= c.Phone %></td>
+						<td><%= c.Title %></td>
+						<td><%= link_to "Edit", edit_contact_path(c) %></td>
+					</tr>
 					<% end %>
+				</table>
+				<ul>
+					
 				</ul>
 			</div>
 		</div>
@@ -50,11 +68,22 @@
 				<h3 class="panel-title">Report Data</h3>
 			</div>
 			<div class="panel-body">
-				<ul>
+				<table class="table table-striped">
+					<tr>
+						<th>Survey Period</th>
+						<th>Number of Employees</th>
+						<th>Payroll</th>
+						<th>Sales Revenue</th>
+					</tr>
+					<tr>
 					<% @crd.each do |r| %>
-					<li><%= link_to r.Survey_Period__c, 							"/companyreportingdata/#{r.Id}" %></li>
+					<td><%= link_to r.Survey_Period__c, "/companyreportingdata/#{r.Id}" %></td>
+					<td><%= number_with_precision(r.Total_Number_of_Employees__c, precision: 0) %></td>
+					<td><%= number_to_currency(r.Total_Company_Payroll__c, precision: 0) %></td>
+					<td><%= number_to_currency(r.Gross_Sales_Revenue__c, precision: 0) %></td>
+					</tr>
 					<% end %>
-				</ul>
+				</table>
 			</div>
 		</div>
 	</div>

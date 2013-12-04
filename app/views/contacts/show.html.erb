@@ -1,10 +1,18 @@
-<ul>
-	<li><%= "Name: #{@contact.Name}" %></li>
-	<li><%= "Title: #{@contact.Title}" %></li>
-	<li><%= "Email: #{@contact.Email}" %></li>
-</ul>
+<div class="row">
+	<h3><%= link_to "edit", edit_contact_path(@contact) %></h3>
+	<div class="col-md-4 col-md-offset-2">
+		<ul>
+			<li><%= "Name: #{@contact.Name}" %></li>
+			<li><%= "Title: #{@contact.Title}" %></li>
+			<li><%= "Email: #{@contact.Email}" %></li>
+			<li><%= "Phone: #{@contact.Phone}" %></li>
+			<li><%= "Mobile Phone: #{@contact.MobilePhone}" %></li>
+		</ul>
+	</div>
+</div>
 <ul>
 	<% @contact.attributes.each do |a| %>
-	<li><%= a %></li>
+	<%= "#{a}, " %>
 	<% end %>
 </ul>
+

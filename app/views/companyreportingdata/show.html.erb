@@ -11,8 +11,8 @@
 				<h3>Jobs</h3>
 			</div>
 			<div class="panel-body">
-				<%= "Full-Time Employees: #{@crd.Total_Number_of_Employees__c}" %><br/>
-				<%= "Total Full-Time Payroll: #{@crd.Total_Company_Payroll__c}" %>
+				<%= "Full-Time Employees: #{number_with_precision(@crd.Total_Number_of_Employees__c, precision: 0)}" %><br/>
+				<%= "Total Full-Time Payroll: #{number_to_currency(@crd.Total_Company_Payroll__c, precision: 0)}" %>
 			</div>
 		</div>
 	</div>
