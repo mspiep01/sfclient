@@ -5,3 +5,4 @@
 	<li><%= link_to "#{a.Name}", a %></li>
 	<% end %>
 </ul>
+<%= debug(params) if Rails.env.development? %>

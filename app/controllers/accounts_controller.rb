@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController ##SFDC Accounts/Organizations
+
   include Databasedotcom::Rails::Controller
 
   def index
@@ -20,5 +21,5 @@ class AccountsController < ApplicationController ##SFDC Accounts/Organizations
      @account.update_attributes(params[:account])
      redirect_to @account
   end
-  
+
 end
